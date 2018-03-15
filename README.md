@@ -1,7 +1,7 @@
-# Politicians_FaceRecongnise
+# Politicians_FaceRecognise
 
 ## Introduction
-This is a project to realise 55 Chinese politicians face recongnise. refernce the repository ([facenet](https://github.com/davidsandberg/facenet.git)).
+This is a project to realise 55 Chinese politicians face recognise. refernce the repository ([facenet](https://github.com/davidsandberg/facenet.git)).
 ## Pre-trained models
 | Model name      | LFW accuracy | Training dataset | Architecture |
 |-----------------|--------------|------------------|-------------|
@@ -13,7 +13,6 @@ This is a project to realise 55 Chinese politicians face recongnise. refernce th
 The code is tested using Tensorflow 0.12 under Ubuntu 16.04 with Python3.6 and Python3.5
 * tensorflow>0.12
 * sklearn
-* matpl
 * numpy
 * scipy
 * pickle
@@ -30,23 +29,19 @@ if you want to change the pictures ,in order to use your own data,also if someon
          people2/
                1.jpg
                2.jpg
-   ```
-
-2. you can change the input or output directory 
+   
+2. you can change the input or output image directory 
     ```
     parser.add_argument('--input_dir', type=str, help='Directory with unaligned images.',default='images/policy/')
     parser.add_argument('--output_dir', type=str, help='Directory with aligned face thumbnails.',default='images/aligned_policy/')
-    ```
+    
 
 then run the code
-
-    ```
+    
     python align_dataset_mtcnn.py
-    ```
 
 after run this code ,you will get the anigned_pictures,you can change the parameters to choose if you want to detect_multiple_faces,the result like:
-
-    ```
+    
     align/images/aligned_policy/
         people1/
                1.jpg
@@ -56,8 +51,8 @@ after run this code ,you will get the anigned_pictures,you can change the parame
                1.jpg
                1_1.jpg
                2.jpg
-    ```
-
+    
+    
 3. copy the files align/images/aligned_policy into images/ 
 
 if you want to use my model directly,and run my project and see the result, you can
@@ -66,15 +61,15 @@ if you want to use my model directly,and run my project and see the result, you 
     ```
     python calacc_plt.py
     python calerror_plt.py
-    ```
+    
 
 2. I alse provide the multi thread python code to calculate the accuracy.
     ```
     python multiThread_process.py
-    ```
+    
 
 # Results
-1. can recongnise profile 
+1. can recognise profile 
 
 ![Figure_1](/result/Figure_1.png)
 
@@ -82,11 +77,11 @@ if you want to use my model directly,and run my project and see the result, you 
 
 ![Figure_1-1](/result/Figure_1-1.png)
 
-3. can recongise sepcial part face
+3. can recogise sepcial part face
 
 ![Figure_1-2](/result/Figure_1-2.png)
 
-4. can recongise sepcial part face
+4. can recogise sepcial part face
 
 ![Figure_1-3](/result/Figure_1-3.png)
 
