@@ -2,13 +2,14 @@
 
 ## Introduction
 This is a project to realise **55 Chinese politicians** face recognise. refernce the repository **([facenet](https://github.com/davidsandberg/facenet.git))**.
+=======
+
 ## Pre-trained models
 | Model name      | LFW accuracy | Training dataset | Architecture |
 |-----------------|--------------|------------------|-------------|
 | [20170511-185253(models/policy/embeding.pb)](https://drive.google.com/file/d/0B5MzpY9kBtDVOTVnU3NIaUdySFE) | 0.987        | CASIA-WebFace    | [Inception ResNet v1](https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py) |
 
 
-# About the code,I run it in python
 ## Dependencies
 The code is tested using Tensorflow 0.12 under Ubuntu 16.04 with Python3.6 and Python3.5
 * tensorflow>0.12
@@ -41,10 +42,10 @@ I set the code:
     python test_model  # I didn't set the predict threshod,the result will output the max probobility of classname. 
  
 
-if you want to change the pictures ,in order to use your own data,also if someone is interested to use my dataset about 55 Chinese politicians,you can email to me ,I am glad to share you my dataset. 
+## Train your dataset 
 1. put your images that haven't be aligned into the directory align/images/,like:
    
-   align/images/policy/
+   align/images/train/policy/
          people1/
                1.jpg
                2.jpg
@@ -52,24 +53,16 @@ if you want to change the pictures ,in order to use your own data,also if someon
                1.jpg
                2.jpg
    
-
-2. you can change the input or output directory 
+2. you can change the input or output image directory 
     
-    parser.add_argument('--input_dir', type=str, help='Directory with unaligned images.',default='images/policy/')
-    parser.add_argument('--output_dir', type=str, help='Directory with aligned face thumbnails.',default='images/aligned_policy/')
+    parser.add_argument('--output_dir', type=str, help='Directory with aligned face thumbnails.',default='images/train/aligned_policy/')
     
 
-then run the code
+then run the code:
 
-    
     python align_dataset_mtcnn.py
-    
 
-after run this code ,you will get the anigned_pictures,you can change the parameters to choose if you want to detect_multiple_faces,set:
-
-    parser.add_argument('--detect_multiple_faces', type=bool, help='Detect and align multiple faces per image.', default=True)
-
-the result like:
+after run this code ,you will get the anigned_pictures,you can change the parameters to choose if you want to detect_multiple_faces,the result like:
     
     align/images/train/aligned_policy/
         people1/
@@ -81,8 +74,7 @@ the result like:
                1_1.jpg
                2.jpg
     
-
-3. copy the files align/images/aligned_policy into images/train/ 
+3. copy the files align/images/train/aligned_policy into images/train/ 
 
 if you want to use my model directly,and run my project and see the result, you can
 
@@ -121,4 +113,3 @@ if you want to use my model directly,and run my project and see the result, you 
 6. as for the others
 
 ![Figure_1-6](/result/Figure_1-6.png)
-
