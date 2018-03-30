@@ -1,8 +1,9 @@
 # Politicians_FaceRecognise
 
 ## Introduction
-This is a project to realise **55 Chinese politicians** face recognise. refernce the repository **([facenet](https://github.com/davidsandberg/facenet.git))**.
-=======
+
+This is a project to realise **55 Chinese politicians** face recognise. refernce the repository (**[facenet](https://github.com/davidsandberg/facenet.git)**).
+
 
 ## Pre-trained models
 | Model name      | LFW accuracy | Training dataset | Architecture |
@@ -35,27 +36,27 @@ I set the code:
 
 3. for train the model:
 
-    python train_model.py
+       python train_model.py
 
 4. for test the model:
 
-    python test_model  # I didn't set the predict threshod,the result will output the max probobility of classname. 
+       python test_model  # I didn't set the predict threshod,the result will output the max probobility of classname. 
  
 
 ## Train your dataset 
 1. put your images that haven't be aligned into the directory align/images/,like:
    
-   align/images/train/policy/
-         people1/
-               1.jpg
-               2.jpg
-         people2/
-               1.jpg
-               2.jpg
+       align/images/train/policy/
+           people1/
+                 1.jpg
+                 2.jpg
+           people2/
+                 1.jpg
+                 2.jpg
    
 2. you can change the input or output image directory 
     
-    parser.add_argument('--output_dir', type=str, help='Directory with aligned face thumbnails.',default='images/train/aligned_policy/')
+       parser.add_argument('--output_dir', type=str, help='Directory with aligned face thumbnails.',default='images/train/aligned_policy/')
     
 
 then run the code:
@@ -80,17 +81,17 @@ if you want to use my model directly,and run my project and see the result, you 
 
 1. show the politician pictures and see the prediction or show the other people which is not the politicican one by one:
    
-    python calacc_plt.py
-    python calerror_plt.py
+       python calacc_plt.py
+       python calerror_plt.py
     
 
 2. I alse provide the multi thread python code to calculate the accuracy.
     
-    python multiThread_process.py
+       python multiThread_process.py
     
 
 # Results
-1. can recognise profile 
+1. while don't set the  CLASS_PROBABILITY_THRESHOLD , can recognise profile 
 
 ![Figure_1](/result/Figure_1.png)
 
