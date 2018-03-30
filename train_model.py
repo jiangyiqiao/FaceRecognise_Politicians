@@ -101,7 +101,7 @@ def parse_arguments(argv):
     parser = argparse.ArgumentParser()
     
     parser.add_argument('--data_dir', type=str,
-        help='Path to the data directory containing aligned LFW face patches.',default='images/aligned_policy/')
+        help='Path to the data directory containing aligned LFW face patches.',default='images/train/aligned_policy/')
     parser.add_argument('--model', type=str, 
         help='Could be either a directory containing the meta_file and ckpt_file or a model protobuf (.pb) file',default='models/policy/embeding.pb')
     parser.add_argument('--classifier_filename', 

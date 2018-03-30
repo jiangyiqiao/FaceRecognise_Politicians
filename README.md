@@ -1,7 +1,7 @@
-# Politicians_FaceRecongnise
+# Politicians_FaceRecognise
 
 ## Introduction
-This is a project to realise 55 Chinese politicians face recongnise. refernce the repository ([facenet](https://github.com/davidsandberg/facenet.git)).
+This is a project to realise **55 Chinese politicians** face recognise. refernce the repository **([facenet](https://github.com/davidsandberg/facenet.git))**.
 ## Pre-trained models
 | Model name      | LFW accuracy | Training dataset | Architecture |
 |-----------------|--------------|------------------|-------------|
@@ -13,16 +13,37 @@ This is a project to realise 55 Chinese politicians face recongnise. refernce th
 The code is tested using Tensorflow 0.12 under Ubuntu 16.04 with Python3.6 and Python3.5
 * tensorflow>0.12
 * sklearn
-* matpl
 * numpy
 * scipy
 * pickle
 * cv2
 * matplotlib
 
+I set the code:
+ 
+    CLASS_PROBABILITY_THRESHOLD=0.2    #the probability of the predict threshold，if less than the threshold ,set the prediction="unknown"
+
+## Dataset
+1. for train set: 
+    
+    images/train/aligned_policy/   #person num: 55 + others, pictures num: 2409
+
+2. for test dataset:
+
+    images/test/others or images/test/policy
+
+3. for train the model:
+
+    python train_model.py
+
+4. for test the model:
+
+    python test_model  # I didn't set the predict threshod,the result will output the max probobility of classname. 
+ 
+
 if you want to change the pictures ,in order to use your own data,also if someone is interested to use my dataset about 55 Chinese politicians,you can email to me ,I am glad to share you my dataset. 
 1. put your images that haven't be aligned into the directory align/images/,like:
-   ```
+   
    align/images/policy/
          people1/
                1.jpg
@@ -30,24 +51,27 @@ if you want to change the pictures ,in order to use your own data,also if someon
          people2/
                1.jpg
                2.jpg
-   ```
+   
 
 2. you can change the input or output directory 
-    ```
+    
     parser.add_argument('--input_dir', type=str, help='Directory with unaligned images.',default='images/policy/')
     parser.add_argument('--output_dir', type=str, help='Directory with aligned face thumbnails.',default='images/aligned_policy/')
-    ```
+    
 
 then run the code
 
-    ```
+    
     python align_dataset_mtcnn.py
-    ```
+    
 
-after run this code ,you will get the anigned_pictures,you can change the parameters to choose if you want to detect_multiple_faces,the result like:
+after run this code ,you will get the anigned_pictures,you can change the parameters to choose if you want to detect_multiple_faces,set:
 
-    ```
-    align/images/aligned_policy/
+    parser.add_argument('--detect_multiple_faces', type=bool, help='Detect and align multiple faces per image.', default=True)
+
+the result like:
+    
+    align/images/train/aligned_policy/
         people1/
                1.jpg
                2.jpg
@@ -56,25 +80,25 @@ after run this code ,you will get the anigned_pictures,you can change the parame
                1.jpg
                1_1.jpg
                2.jpg
-    ```
+    
 
-3. copy the files align/images/aligned_policy into images/ 
+3. copy the files align/images/aligned_policy into images/train/ 
 
 if you want to use my model directly,and run my project and see the result, you can
 
 1. show the politician pictures and see the prediction or show the other people which is not the politicican one by one:
-    ```
+   
     python calacc_plt.py
     python calerror_plt.py
-    ```
+    
 
 2. I alse provide the multi thread python code to calculate the accuracy.
-    ```
+    
     python multiThread_process.py
-    ```
+    
 
 # Results
-1. can recongnise profile 
+1. can recognise profile 
 
 ![Figure_1](/result/Figure_1.png)
 
@@ -82,11 +106,11 @@ if you want to use my model directly,and run my project and see the result, you 
 
 ![Figure_1-1](/result/Figure_1-1.png)
 
-3. can recongise sepcial part face
+3. can recogise sepcial part face
 
 ![Figure_1-2](/result/Figure_1-2.png)
 
-4. can recongise sepcial part face
+4. can recogise sepcial part face
 
 ![Figure_1-3](/result/Figure_1-3.png)
 

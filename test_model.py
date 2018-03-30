@@ -60,7 +60,7 @@ def main(args):
                         print('Testing classifier')
                         prediction = model.predict(emb_datas)    #预测结果
                         print(prediction)
-                        predictions.append(class_names[prediction[0]])  
+                        predictions.append(class_names[prediction[0]])    #直接预测，总会得到最大的可能值
             
             
             for prediction in predictions:         #每张图所有预测人脸结果
@@ -134,7 +134,7 @@ def load_and_align_data(image_path, image_size, margin, gpu_memory_fraction):
 def parse_arguments(argv):
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--input_dir', type=str, help='Directory with unaligned images.',default='./images/test/')
+    parser.add_argument('--input_dir', type=str, help='Directory with unaligned images.',default='./images/test/policy')
     parser.add_argument('--image_size', type=int,
         help='Image size (height, width) in pixels.', default=182)
     parser.add_argument('--margin', type=int,

@@ -28,6 +28,7 @@ policy_names=['xijinping','makai','anghuning','liuyunshan','liuyandong','liuqiba
 'jiangzeming','lipeng','maozedong','wenjiabao','zhaoziyang','zhurongji','boxilai','guoboxiong','linjihua',
 'xucaihou','zhouyongkang']
 
+CLASS_PROBABILITY_THRESHOLD=0.2           #设置阈值准确度，否则识别为unknown
 
 def main(args):
     dataset = facenet.get_dataset(args.input_dir)
@@ -63,13 +64,21 @@ def main(args):
                     for image in images:
                         feed_dict = {images_placeholder: [np.array(image)], phase_train_placeholder: False}
                         emb_datas = sess.run(embeddings, feed_dict=feed_dict)
-               
-                        print("emb_datas")
-                        #print(emb_datas)
+
                         print('Testing classifier')
-                        prediction = model.predict(emb_datas)
-                        print(prediction)
-                        predictions.append(class_names[prediction[0]])
+                        predict_proba=model.predict_proba(emb_datas)
+                        best_class_indice = np.argmax(predict_proba, axis=1)
+                        best_class_probability = predict_proba[np.arange(len(best_class_indice)), best_class_indice]
+                        for i in range(len(best_class_indice)):
+                            class_name = class_names[best_class_indice[i]]
+                            class_probability = best_class_probability[i]
+                            print("class_probability:",class_probability)
+                            if class_probability < CLASS_PROBABILITY_THRESHOLD:
+                               prediction = "unknown"
+                            else:
+                               prediction=class_name
+                               break
+                        predictions.append(prediction)
             
             #每张图所有预测人脸结果
             for prediction in predictions:
