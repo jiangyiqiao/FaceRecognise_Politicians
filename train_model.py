@@ -103,7 +103,7 @@ def parse_arguments(argv):
     parser.add_argument('--data_dir', type=str,
         help='Path to the data directory containing aligned LFW face patches.',default='images/train/aligned_policy/')
     parser.add_argument('--model', type=str, 
-        help='Could be either a directory containing the meta_file and ckpt_file or a model protobuf (.pb) file',default='models/policy/embeding.pb')
+        help='Could be either a directory containing the meta_file and ckpt_file or a model protobuf (.pb) file',default='models/policy/embedding.pb')
     parser.add_argument('--classifier_filename', 
         help='Classifier model file name as a pickle (.pkl) file. ' + 
         'For training this is the output and for classification this is an input.',default='models/policy/svm_classifier.pkl')

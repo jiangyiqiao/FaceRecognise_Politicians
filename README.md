@@ -8,7 +8,7 @@ This is a project to realise **55 Chinese politicians** face recognise. refernce
 ## Pre-trained models
 | Model name      | LFW accuracy | Training dataset | Architecture |
 |-----------------|--------------|------------------|-------------|
-| [20170511-185253(models/policy/embeding.pb)](https://drive.google.com/file/d/0B5MzpY9kBtDVOTVnU3NIaUdySFE) | 0.987        | CASIA-WebFace    | [Inception ResNet v1](https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py) |
+| [20170511-185253(models/policy/embedding.pb)](https://drive.google.com/file/d/0B5MzpY9kBtDVOTVnU3NIaUdySFE) | 0.987        | CASIA-WebFace    | [Inception ResNet v1](https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py) |
 
 
 ## Dependencies

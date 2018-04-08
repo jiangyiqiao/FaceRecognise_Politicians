@@ -30,7 +30,7 @@ image_size=182
 margin=44
 gpu_memory_fraction=1.0
 etect_multiple_faces=True
-model_path='models/policy/embeding.pb'
+model_path='models/policy/embedding.pb'
 classifier_filename='models/policy/svm_classifier.pkl'
 batch_size=90
 facenet_image_size=160
@@ -49,7 +49,7 @@ def parsePicture(picture_paths,model,class_names):
             print(url)
             num+=1
             print(num)
-            t = Thread(target=embeding, args=(url,model,class_names))
+            t = Thread(target=embedding, args=(url,model,class_names))
             threads.append(t)
             t.start()
         for t in threads:
@@ -57,7 +57,7 @@ def parsePicture(picture_paths,model,class_names):
 
 
 #计算向量化数据
-def embeding(image_path,model,class_names):
+def embedding(image_path,model,class_names):
 
     print(image_path)
     print(image_size)
